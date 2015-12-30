@@ -4,7 +4,7 @@
 //
 //  Created by HeHui on 15/12/29.
 //  Copyright (c) 2015年 Hawie. All rights reserved.
-//
+//  这是我的git
 
 #import "RootTabBarController.h"
 #import "HomeTableViewController.h"
@@ -12,6 +12,8 @@
 #import "DiscoveryTableViewController.h"
 #import "PersonalTableViewController.h"
 #import "WBTabBar.h"
+
+
 
 @interface RootTabBarController () <WBTabBarDelegate>
 
