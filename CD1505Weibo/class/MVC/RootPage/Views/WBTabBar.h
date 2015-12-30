@@ -12,9 +12,13 @@
 
 - (void)passIndex:(NSInteger)index;
 
+
+
 @end
 
 typedef void(^PassIndex)(NSInteger index);
+
+typedef void(^PlubBtnPressedBlock)();
 
 @interface WBTabBar : UIView
 
@@ -24,8 +28,10 @@ typedef void(^PassIndex)(NSInteger index);
 
 @property (nonatomic,weak)id <WBTabBarDelegate> delegate;
 
+/** 传出标签选项的index的block*/
 @property (nonatomic,copy) PassIndex passIndex;
 
-
+/** 中间加号按钮点击的回调block*/
+@property (nonatomic, copy) PlubBtnPressedBlock plBlock;
 
 @end

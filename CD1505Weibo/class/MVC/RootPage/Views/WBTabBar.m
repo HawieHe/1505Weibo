@@ -39,6 +39,7 @@
         [plusBtn setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button"] forState:UIControlStateNormal];
         [plusBtn setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button_highlighted"] forState:UIControlStateHighlighted];
         self.plusBtn = plusBtn;
+        [plusBtn addTarget:self action:@selector(plusBtnPressed) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
@@ -134,6 +135,14 @@
 //    }
     if (_passIndex) {
         _passIndex(index);
+    }
+}
+
+/** 加号按钮点击*/
+- (void)plusBtnPressed
+{
+    if (_plBlock) {
+        _plBlock();
     }
 }
 

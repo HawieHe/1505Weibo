@@ -7,19 +7,62 @@
 //
 
 #import "HomeTableViewController.h"
+#import "UIBarButtonItem+Util.h"
+#import "TitleButton.h"
+#import "DropControl.h"
 
 @interface HomeTableViewController ()
+
+/** 下拉框*/
+@property (nonatomic,strong) DropControl *dropControl;
 
 @end
 
 @implementation HomeTableViewController
 
+- (DropControl *)dropControl
+{
+    if (_dropControl == nil) {
+        
+        NSArray *dataArr = @[@"床前明月光",
+                             @"地上鞋两双",
+                             @"举头望明月",
+                             @"低头思故乡"];
+        
+        _dropControl = [[DropControl alloc] initWithInsideViewFrame:CGRectMake(100, 60, 180, 300) inView:self.tabBarController.view dataSource:dataArr];
+        _dropControl.backgroundColor = [UIColor clearColor];
+        
+        __weak typeof(self) weakSelf = self;
+        _dropControl.afhBlk = ^ {
+          
+            // 隐藏之后的回调代码
+            TitleButton *btn = (TitleButton *)weakSelf.navigationItem.titleView;
+            if (btn.selected) {
+                btn.selected = NO;
+            }
+        };
+        
+        _dropControl.dsBlk = ^ (NSInteger index) {
+            // 隐藏之后的回调代码
+            TitleButton *btn = (TitleButton *)weakSelf.navigationItem.titleView;
+            if (btn.selected) {
+                btn.selected = NO;
+            }
+
+            NSLog(@"index = %ld",index);
+        };
+    }
+    return _dropControl;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:@"测试" style:UIBarButtonItemStyleDone target:self action:@selector(test)];
-    self.navigationItem.rightBarButtonItem = right;
-
+    [self createNaviBarItem];
+    
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -27,18 +70,55 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+
+/** 构建导航栏 */
+- (void)createNaviBarItem
+{
+ 
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem generateBarButtonItemWithNormaImageName:@"navigationbar_friendattention" highlightedImageName:@"navigationbar_friendattention_highlighted"];
+    
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem generateBarButtonItemWithNormaImageName:@"navigationbar_icon_radar" highlightedImageName:@"navigationbar_icon_radar_highlighted"];
+    
+    TitleButton *btn = [TitleButton buttonWithType:UIButtonTypeCustom];
+    [btn setTitle:@"大王叫我来巡山" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
+    btn.frame = CGRectMake(0, 0, 200, 30);
+    btn.backgroundColor =[UIColor clearColor];
+    
+    self.navigationItem.titleView = btn;
+    
+    [btn addTarget:self action:@selector(titleBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+#pragma mark - title按钮点击
+- (void)titleBtnPressed:(TitleButton *)btn
+{
+    btn.selected = !btn.selected;
+  
+    
+    if (btn.selected) {
+        [self.dropControl show];
+    
+    }else {
+        [self.dropControl dismiss];
+    }
+    
+    
+}
+
+
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
   
 }
 
-- (void)test {
-    UIViewController *vc = [UIViewController new];
-    vc.view.backgroundColor = [UIColor redColor];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
