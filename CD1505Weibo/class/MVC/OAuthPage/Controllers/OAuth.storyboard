@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--Auth View Controller-->
+        <scene sceneID="a9a-6y-0FC">
+            <objects>
+                <viewController storyboardIdentifier="OAuthViewController" id="60A-mE-Jgd" customClass="OAuthViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QCV-f8-xzZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="gOC-2X-80f"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lbd-9L-7sB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nMe-P0-vTg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="60A-mE-Jgd" id="sld-az-YJH"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nMe-P0-vTg" firstAttribute="leading" secondItem="Lbd-9L-7sB" secondAttribute="leading" id="L9K-gs-KWG"/>
+                            <constraint firstAttribute="trailing" secondItem="nMe-P0-vTg" secondAttribute="trailing" id="MRx-ZM-3sV"/>
+                            <constraint firstItem="gOC-2X-80f" firstAttribute="top" secondItem="nMe-P0-vTg" secondAttribute="bottom" id="QE8-xI-0ZB"/>
+                            <constraint firstItem="nMe-P0-vTg" firstAttribute="top" secondItem="Lbd-9L-7sB" secondAttribute="top" id="shl-cd-lb8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="nMe-P0-vTg" id="ir9-cv-1Ca"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ppD-wy-Khk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="585" y="364"/>
+        </scene>
+    </scenes>
+</document>

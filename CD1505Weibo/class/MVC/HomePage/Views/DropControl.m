@@ -76,6 +76,8 @@ static NSString *dropCellID = @"DropCellID";
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         [self.dropImgView addSubview:self.tableView];
+        self.dropImgView.clipsToBounds = YES;
+        
         
         // 估算有多少个元素的tableview高度
         CGFloat tbHeight = self.dataArray.count * cellHeight;
@@ -142,7 +144,7 @@ static NSString *dropCellID = @"DropCellID";
     rect.size.height = 0;
     self.userInteractionEnabled = NO;
 
-    [UIView animateWithDuration:0.5f animations:^{
+    [UIView animateWithDuration:0.5 animations:^{
         self.dropImgView.frame = rect;
         
     } completion:^(BOOL finished) {

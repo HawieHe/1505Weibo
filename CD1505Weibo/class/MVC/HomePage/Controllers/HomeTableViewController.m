@@ -75,9 +75,9 @@
 - (void)createNaviBarItem
 {
  
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem generateBarButtonItemWithNormaImageName:@"navigationbar_friendattention" highlightedImageName:@"navigationbar_friendattention_highlighted"];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem generateBarButtonItemWithNormaImageName:@"navigationbar_friendattention" highlightedImageName:@"navigationbar_friendattention_highlighted" target:self selector:@selector(leftBarButtonItemPressed)];
     
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem generateBarButtonItemWithNormaImageName:@"navigationbar_icon_radar" highlightedImageName:@"navigationbar_icon_radar_highlighted"];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem generateBarButtonItemWithNormaImageName:@"navigationbar_icon_radar" highlightedImageName:@"navigationbar_icon_radar_highlighted" target:self selector:@selector(rightBarButtonItemPressed)];
     
     TitleButton *btn = [TitleButton buttonWithType:UIButtonTypeCustom];
     [btn setTitle:@"大王叫我来巡山" forState:UIControlStateNormal];
@@ -109,6 +109,18 @@
     
 }
 
+#pragma mark - 导航栏按钮点击
+/** 导航栏左边按钮点击*/
+- (void)leftBarButtonItemPressed
+{
+    self.tabBarItem.badgeValue = [NSString stringWithFormat:@"%u",arc4random()%200];
+}
+
+/** 导航栏右边按钮点击*/
+- (void)rightBarButtonItemPressed
+{
+    
+}
 
 
 

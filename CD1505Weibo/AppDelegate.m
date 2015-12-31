@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "RootTabBarController.h"
+#import "NewfeatureViewController.h"
+#import "OAuthViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +21,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [[RootTabBarController alloc] init];
+//    self.window.rootViewController = [[RootTabBarController alloc] init];
+//    self.window.rootViewController = [[NewfeatureViewController alloc] init];
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"OAuth" bundle:nil];
+    
+    OAuthViewController *oauthVc = [sb instantiateViewControllerWithIdentifier:@"OAuthViewController"];
+    self.window.rootViewController = oauthVc;
+    
     [self.window makeKeyAndVisible];
     
     return YES;

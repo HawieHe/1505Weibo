@@ -7,6 +7,16 @@
 //
 
 #import "WBTabBarButton.h"
+#import "WBBadgeButton.h"
+
+@interface WBTabBarButton ()
+
+/** 角标*/
+@property (nonatomic, strong)WBBadgeButton *badgeButton;
+
+
+
+@end
 
 @implementation WBTabBarButton
 
@@ -18,6 +28,10 @@
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.titleLabel.font = [UIFont systemFontOfSize:14];
+        
+        self.badgeButton = [WBBadgeButton buttonWithType:UIButtonTypeCustom];
+        [self addSubview:self.badgeButton];
+        
     }
     return self;
 }
@@ -37,6 +51,11 @@
 
 - (void)setTabBarItem:(UITabBarItem *)tabBarItem
 {
+    _tabBarItem = tabBarItem;
+    
+    // 将自己添加成观察者，监听_tabBarItem的角标值(badgeValue)的改变
+    [_tabBarItem addObserver:self forKeyPath:@"badgeValue" options:NSKeyValueObservingOptionNew context:nil];
+    
     [self setTitle:tabBarItem.title forState:UIControlStateNormal];
     
     [self setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
@@ -45,6 +64,17 @@
     
     [self setImage:tabBarItem.image forState:UIControlStateNormal];
     [self setImage:tabBarItem.selectedImage forState:UIControlStateSelected];
+}
+
+- (void)dealloc
+{
+    [_tabBarItem removeObserver:self forKeyPath:@"badgeValue"];
+}
+
+/** 监听的回调方法 一旦监听的对象的值发生改变就会调用这个方法*/
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    self.badgeButton.badgeValue = _tabBarItem.badgeValue;
 }
 
 
@@ -73,5 +103,19 @@
 {
     
 }
+
+
+/** 布局子视图*/
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    // 以图片的大小来确定按钮的大小
+    CGSize size = self.badgeButton.currentBackgroundImage.size;
+    self.badgeButton.frame = CGRectMake(CGRectGetWidth(self.frame) - size.width, 0, size.width, size.height);
+    self.badgeButton.badgeValue = _tabBarItem.badgeValue ;
+    
+}
+
 
 @end

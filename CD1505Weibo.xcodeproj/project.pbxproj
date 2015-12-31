@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1118C69D1C34BE6A00539D37 /* WBBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1118C69C1C34BE6A00539D37 /* WBBadgeButton.m */; };
 		115C39021C33820000581C98 /* UIBarButtonItem+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 115C39011C33820000581C98 /* UIBarButtonItem+Util.m */; };
 		115C39051C33867A00581C98 /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 115C39041C33867A00581C98 /* TitleButton.m */; };
 		11CDB4AB1C321B3400E07899 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CDB4AA1C321B3400E07899 /* main.m */; };
@@ -23,6 +24,11 @@
 		11CDB4F91C322F0100E07899 /* WBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CDB4F81C322F0100E07899 /* WBTabBar.m */; };
 		11CDB4FC1C322F8C00E07899 /* WBTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CDB4FB1C322F8C00E07899 /* WBTabBarButton.m */; };
 		11D2EED11C33BEC500E0AFF2 /* DropControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D2EED01C33BEC500E0AFF2 /* DropControl.m */; };
+		11ED9B341C34D3A7000F18DF /* UIImage+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 11ED9B331C34D3A7000F18DF /* UIImage+Util.m */; };
+		11ED9B3B1C34DB37000F18DF /* NewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11ED9B3A1C34DB37000F18DF /* NewfeatureViewController.m */; };
+		11ED9B421C3512F1000F18DF /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11ED9B411C3512F1000F18DF /* OAuthViewController.m */; };
+		11ED9B451C35154B000F18DF /* OAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11ED9B441C35154B000F18DF /* OAuth.storyboard */; };
+		11ED9B481C352572000F18DF /* AFHTTPSessionManager+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 11ED9B471C352572000F18DF /* AFHTTPSessionManager+Util.m */; };
 		FEFE96F48A3B2E2EC6C6C457 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EBD5EBAAF6FCF88E7CFF8A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1118C69B1C34BE6A00539D37 /* WBBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBBadgeButton.h; sourceTree = "<group>"; };
+		1118C69C1C34BE6A00539D37 /* WBBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBBadgeButton.m; sourceTree = "<group>"; };
 		115C39001C33820000581C98 /* UIBarButtonItem+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Util.h"; sourceTree = "<group>"; };
 		115C39011C33820000581C98 /* UIBarButtonItem+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Util.m"; sourceTree = "<group>"; };
 		115C39031C33867A00581C98 /* TitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleButton.h; sourceTree = "<group>"; };
@@ -69,6 +77,16 @@
 		11CDB4FD1C32310500E07899 /* WB-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WB-PrefixHeader.pch"; sourceTree = "<group>"; };
 		11D2EECF1C33BEC500E0AFF2 /* DropControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropControl.h; sourceTree = "<group>"; };
 		11D2EED01C33BEC500E0AFF2 /* DropControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropControl.m; sourceTree = "<group>"; };
+		11ED9B321C34D3A7000F18DF /* UIImage+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Util.h"; sourceTree = "<group>"; };
+		11ED9B331C34D3A7000F18DF /* UIImage+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Util.m"; sourceTree = "<group>"; };
+		11ED9B391C34DB37000F18DF /* NewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewfeatureViewController.h; sourceTree = "<group>"; };
+		11ED9B3A1C34DB37000F18DF /* NewfeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewfeatureViewController.m; sourceTree = "<group>"; };
+		11ED9B401C3512F1000F18DF /* OAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthViewController.h; sourceTree = "<group>"; };
+		11ED9B411C3512F1000F18DF /* OAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
+		11ED9B431C351402000F18DF /* WB-OAuthInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WB-OAuthInfo.h"; sourceTree = "<group>"; };
+		11ED9B441C35154B000F18DF /* OAuth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OAuth.storyboard; sourceTree = "<group>"; };
+		11ED9B461C352572000F18DF /* AFHTTPSessionManager+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFHTTPSessionManager+Util.h"; sourceTree = "<group>"; };
+		11ED9B471C352572000F18DF /* AFHTTPSessionManager+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPSessionManager+Util.m"; sourceTree = "<group>"; };
 		44EBD5EBAAF6FCF88E7CFF8A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4713E2C47F0783758B5E3851 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B63502B47308AAA45A91F296 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +116,10 @@
 			children = (
 				115C39001C33820000581C98 /* UIBarButtonItem+Util.h */,
 				115C39011C33820000581C98 /* UIBarButtonItem+Util.m */,
+				11ED9B321C34D3A7000F18DF /* UIImage+Util.h */,
+				11ED9B331C34D3A7000F18DF /* UIImage+Util.m */,
+				11ED9B461C352572000F18DF /* AFHTTPSessionManager+Util.h */,
+				11ED9B471C352572000F18DF /* AFHTTPSessionManager+Util.m */,
 			);
 			path = Categroies;
 			sourceTree = "<group>";
@@ -181,6 +203,8 @@
 		11CDB4D01C321E0400E07899 /* MVC */ = {
 			isa = PBXGroup;
 			children = (
+				11ED9B3C1C3512C3000F18DF /* OAuthPage */,
+				11ED9B351C34DB09000F18DF /* NewfeaturePage */,
 				11CDB4D11C321E0400E07899 /* DiscoveryPage */,
 				11CDB4D51C321E0400E07899 /* HomePage */,
 				11CDB4D91C321E0400E07899 /* MessagePage */,
@@ -359,6 +383,8 @@
 				11CDB4F81C322F0100E07899 /* WBTabBar.m */,
 				11CDB4FA1C322F8C00E07899 /* WBTabBarButton.h */,
 				11CDB4FB1C322F8C00E07899 /* WBTabBarButton.m */,
+				1118C69B1C34BE6A00539D37 /* WBBadgeButton.h */,
+				1118C69C1C34BE6A00539D37 /* WBBadgeButton.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -387,6 +413,74 @@
 				11CDB4B71C321B3400E07899 /* LaunchScreen.xib */,
 			);
 			name = InterfaceBuilder;
+			sourceTree = "<group>";
+		};
+		11ED9B351C34DB09000F18DF /* NewfeaturePage */ = {
+			isa = PBXGroup;
+			children = (
+				11ED9B361C34DB09000F18DF /* Controllers */,
+				11ED9B371C34DB09000F18DF /* Models */,
+				11ED9B381C34DB09000F18DF /* Views */,
+			);
+			path = NewfeaturePage;
+			sourceTree = "<group>";
+		};
+		11ED9B361C34DB09000F18DF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				11ED9B391C34DB37000F18DF /* NewfeatureViewController.h */,
+				11ED9B3A1C34DB37000F18DF /* NewfeatureViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		11ED9B371C34DB09000F18DF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		11ED9B381C34DB09000F18DF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		11ED9B3C1C3512C3000F18DF /* OAuthPage */ = {
+			isa = PBXGroup;
+			children = (
+				11ED9B3D1C3512C3000F18DF /* Controllers */,
+				11ED9B3E1C3512C3000F18DF /* Models */,
+				11ED9B3F1C3512C3000F18DF /* Views */,
+				11ED9B431C351402000F18DF /* WB-OAuthInfo.h */,
+			);
+			path = OAuthPage;
+			sourceTree = "<group>";
+		};
+		11ED9B3D1C3512C3000F18DF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				11ED9B401C3512F1000F18DF /* OAuthViewController.h */,
+				11ED9B411C3512F1000F18DF /* OAuthViewController.m */,
+				11ED9B441C35154B000F18DF /* OAuth.storyboard */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		11ED9B3E1C3512C3000F18DF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		11ED9B3F1C3512C3000F18DF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		795154AA4AE50B5504D2633E /* Frameworks */ = {
@@ -488,6 +582,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11ED9B451C35154B000F18DF /* OAuth.storyboard in Resources */,
 				11CDB4B41C321B3400E07899 /* Main.storyboard in Resources */,
 				11CDB4B91C321B3400E07899 /* LaunchScreen.xib in Resources */,
 				11CDB4B61C321B3400E07899 /* Images.xcassets in Resources */,
@@ -541,17 +636,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11ED9B421C3512F1000F18DF /* OAuthViewController.m in Sources */,
 				11CDB4ED1C32205600E07899 /* HomeTableViewController.m in Sources */,
 				115C39051C33867A00581C98 /* TitleButton.m in Sources */,
 				11CDB4F01C32206E00E07899 /* MessageTableViewController.m in Sources */,
 				11CDB4F91C322F0100E07899 /* WBTabBar.m in Sources */,
 				11CDB4F61C3220A000E07899 /* PersonalTableViewController.m in Sources */,
+				11ED9B3B1C34DB37000F18DF /* NewfeatureViewController.m in Sources */,
+				11ED9B341C34D3A7000F18DF /* UIImage+Util.m in Sources */,
 				11CDB4EA1C321EEB00E07899 /* RootTabBarController.m in Sources */,
 				11D2EED11C33BEC500E0AFF2 /* DropControl.m in Sources */,
 				11CDB4AE1C321B3400E07899 /* AppDelegate.m in Sources */,
 				11CDB4F31C32208A00E07899 /* DiscoveryTableViewController.m in Sources */,
 				11CDB4AB1C321B3400E07899 /* main.m in Sources */,
 				115C39021C33820000581C98 /* UIBarButtonItem+Util.m in Sources */,
+				11ED9B481C352572000F18DF /* AFHTTPSessionManager+Util.m in Sources */,
+				1118C69D1C34BE6A00539D37 /* WBBadgeButton.m in Sources */,
 				11CDB4FC1C322F8C00E07899 /* WBTabBarButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

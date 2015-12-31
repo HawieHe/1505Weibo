@@ -4,12 +4,42 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>IQKeyboardManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>KVNProgress.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>PopMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,12 +57,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0F8BDB8D53F4B52E4932254EB6433B48</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2D13DBDC7E6052B5DE4CF9E03622EE7E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>47C800E42623009B7192B025B3DD25A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>96F69932FF5B438325F540C37FA1BDE0</key>
+		<key>5352D432641F0656C90741034E32F31E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8C7F2BFD2033CBECEF2BA52792B1257C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A3C22A8E0D4CD62603B28190BCB218CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +92,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B281DA29A9C3EDFB45BA53651F6BA611</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B7D1247F0660EE6DA6EBA56AF1B44D11</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C536405CD548A2D9D551C7BF3EEA1D56</key>
 		<dict>
 			<key>primary</key>
 			<true/>

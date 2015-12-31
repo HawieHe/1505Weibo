@@ -132,6 +132,7 @@
         UITableViewController *vc = [[vcClass alloc] init];
         vc.title = vcTitleArray[index];
         
+        vc.tabBarItem.badgeValue = [NSString stringWithFormat:@"%u",arc4random()%100];
         
         
         [vc.tabBarItem setImage:[[UIImage imageNamed:norImageArray[index]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];

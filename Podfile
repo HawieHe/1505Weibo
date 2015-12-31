@@ -1,2 +1,8 @@
 platform:ios,'8.0'
 pod 'PopMenu'
+pod 'AFNetworking'
+pod 'IQKeyboardManager'
+pod 'SDWebImage'
+pod 'MBProgressHUD'
+pod 'SVProgressHUD'
+pod 'KVNProgress'

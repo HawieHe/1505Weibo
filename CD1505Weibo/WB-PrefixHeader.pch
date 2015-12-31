@@ -18,5 +18,10 @@
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
 
+/** 三方库*/
+#import <AFNetworking.h>
+
+
+
 
 #endif

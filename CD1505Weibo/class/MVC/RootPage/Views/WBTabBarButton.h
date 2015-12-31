@@ -10,6 +10,7 @@
 
 @interface WBTabBarButton : UIButton
 
+
 /** 是图片高度占整个按钮高度的比例  0 ~ 1 默认是0.6*/
 @property (nonatomic, assign) CGFloat ratio;
 
