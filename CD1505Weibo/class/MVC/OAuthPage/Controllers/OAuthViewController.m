@@ -9,7 +9,9 @@
 #import "OAuthViewController.h"
 #import "WB-OAuthInfo.h"
 #import "AFHTTPSessionManager+Util.h"
-
+#import "OAuthModel.h"
+#import "OAuthTool.h"
+#import "NewfeatureTool.h"
 
 @interface OAuthViewController () <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -45,7 +47,7 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    NSLog(@"url = %@",request.URL.absoluteString);
+//    NSLog(@"url = %@",request.URL.absoluteString);
     
     NSString *urlStr = request.URL.absoluteString;
     
@@ -76,9 +78,16 @@
     params[@"redirect_uri"] = WB_REDIRECTURI;
     
     [AFHTTPSessionManager requestWithType:AFHTTPSessionManagerRequestTypePOST URLString:WB_API_GETACCESSTOKEN parmaeters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"responsObj = %@",responseObject);
+        OAuthModel *modle = [[OAuthModel alloc] init];
+        modle.access_token = responseObject[@"access_token"];
+        modle.expires_in = responseObject[@"expires_in"];
+        modle.remind_in = responseObject[@"remind_in"];
+        modle.uid = responseObject[@"uid"];
+        // 用归档来存储
         
-        NSLog(@"respoobj = %@",responseObject);
-        
+        [OAuthTool saveOAuthInfoWithModel:modle];
+        [NewfeatureTool choseRootViewController];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"erro  =%@",[error localizedDescription]);
     }];

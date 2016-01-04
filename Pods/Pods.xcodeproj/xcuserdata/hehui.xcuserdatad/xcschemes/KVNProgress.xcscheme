@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "65493861FAC588F6E6168A07"
+               BlueprintIdentifier = "BF39FBA46764F2E4166B7211"
                BuildableName = "libKVNProgress.a"
                BlueprintName = "KVNProgress"
                ReferencedContainer = "container:Pods.xcodeproj">
