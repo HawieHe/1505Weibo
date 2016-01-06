@@ -19,6 +19,8 @@
         self.imageView.contentMode = UIViewContentModeCenter;
     }
     return self;
+    
+    
 }
 
 

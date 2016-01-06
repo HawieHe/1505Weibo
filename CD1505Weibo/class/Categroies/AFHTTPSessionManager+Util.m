@@ -14,6 +14,9 @@
 + (void)requestWithType:(AFHTTPSessionManagerRequestType)type URLString:(NSString *)urlStr parmaeters:(id)parameters success:(void (^)(NSURLSessionDataTask *, id))success failure:(void (^)(NSURLSessionDataTask *, NSError *))failure
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer.timeoutInterval = 10;
+
+    
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/plain", nil];
     if (type == AFHTTPSessionManagerRequestTypeGET) {
         [manager GET:urlStr parameters:parameters success:^(NSURLSessionDataTask * ta, id res) {

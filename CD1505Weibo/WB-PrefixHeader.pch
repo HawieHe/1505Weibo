@@ -20,8 +20,29 @@
 
 /** 三方库*/
 #import <AFNetworking.h>
+#import <KVNProgress.h>
+#import <SVProgressHUD.h>
+#import <MBProgressHUD.h>
+
+#import "MBProgressHUDManager.h"
 
 
+/** 字体相关*/
+
+// 用户名字体大小（微博正文也是这个）
+#define WB_FONT_USERNAME [UIFont systemFontOfSize:16]
+
+// 微博发布时间字体大小(来源也是用这个)
+#define WB_FONT_TIME [UIFont systemFontOfSize:13]
+
+
+/** 间距*/
+
+// 普通间距
+#define WB_SPACING_NORMAL 8
+
+// 较小的间距
+#define WB_SPACING_SMALL 5
 
 
 #endif

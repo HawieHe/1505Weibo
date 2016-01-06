@@ -13,4 +13,7 @@
 /** 图片缩略图链接*/
 @property (nonatomic, copy) NSString *thumbnail_pic;
 
+/** 图片大图链接*/
+@property (nonatomic, copy) NSString *large_pic;
+
 @end

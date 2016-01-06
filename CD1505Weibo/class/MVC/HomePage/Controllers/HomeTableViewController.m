@@ -15,15 +15,58 @@
 #import "OAuthTool.h"
 #import "OAuthViewController.h"
 #import "StatusModel.h"
+#import "WBFrameModel.h"
+#import "WBCell.h"
+
+
 
 @interface HomeTableViewController ()
+
+/** 遮罩图片*/
+@property (nonatomic,strong) UIImageView *maskImgView;
 
 /** 下拉框*/
 @property (nonatomic,strong) DropControl *dropControl;
 
+/** 微博数据源*/
+@property (nonatomic,strong) NSMutableArray *dataArray;
+
 @end
 
 @implementation HomeTableViewController
+
+- (UIImageView *)maskImgView
+{
+    if (_maskImgView == nil) {
+        _maskImgView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        NSMutableArray *imgs = @[].mutableCopy;
+        for (int i = 0; i< 17; i++) {
+            NSString *imgName = [NSString stringWithFormat:@"loading%02d",i+1];
+            UIImage *img = [UIImage imageNamed:imgName];
+            [imgs addObject:img];
+            
+        }
+        _maskImgView.backgroundColor = [UIColor whiteColor];
+        _maskImgView.contentMode = UIViewContentModeTop;
+        _maskImgView.animationImages = imgs;
+        _maskImgView.animationDuration = 2;
+        [self.view addSubview:_maskImgView];
+        
+        [self.view bringSubviewToFront:_maskImgView];
+
+    }
+    
+    return _maskImgView;
+}
+
+- (NSMutableArray *)dataArray
+{
+    
+    if (_dataArray == nil) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
 
 - (DropControl *)dropControl
 {
@@ -66,6 +109,8 @@
     
     [self createNaviBarItem];
     
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = [UIColor clearColor];
     // 请求数据
     [self generateData];
     
@@ -150,20 +195,110 @@
         self.view.window.rootViewController = [[OAuthViewController alloc] init];
     }else {
         parmas[@"access_token"] = oaModel.access_token;
-        parmas[@"count"]=@1;
+        parmas[@"count"]=@10;
     }
     
+//    MBProgressHUDManager *mgr = [[MBProgressHUDManager alloc] initWithView:self.view];
+    
+    [self.maskImgView startAnimating];
+    
+    
+//    [mgr showIndeterminateWithMessage:@"asdfadsf"];
+    
+//    [mgr showNoticeMessage:@"aready exsits" duration:3.f complection:^{
+//        
+//    }];
+//    
+//    [mgr showDetailMessage:@"hello world" duration:3.f complection:^{
+//        
+//    }];
+    
+    
+    
+    /*
+
+//    [SVProgressHUD showImage:[UIImage imageNamed:@"tabbar_compose_review"] status:@"loading..."];
+    
+    KVNProgressConfiguration *c = [KVNProgressConfiguration defaultConfiguration];
+    c.circleStrokeForegroundColor = [UIColor redColor];
+//    c.circleFillBackgroundColor = [UIColor magentaColor];
+    c.circleStrokeBackgroundColor = [UIColor greenColor];
+    
+    c.backgroundTintColor = [UIColor lightGrayColor];
+    
+    c.backgroundType = KVNProgressBackgroundTypeSolid;
+    
+    [KVNProgress setConfiguration:c];
+    [KVNProgress showWithStatus:@"loading..."];
+   
+    */
+    
+//    [KVNProgress showWithStatus:@"正在加载数据..."];
     
     [AFHTTPSessionManager requestWithType:AFHTTPSessionManagerRequestTypeGET URLString:WB_API_HOME_TIMELINE parmaeters:parmas success:^(NSURLSessionDataTask *task, id responseObject) {
+//        [KVNProgress dismiss];
+//        [SVProgressHUD dismiss];
+//        [self.maskImgView stopAnimating];
+//        [self.maskImgView removeFromSuperview];
+//        self.maskImgView = nil;
         NSArray *statusArr = responseObject[@"statuses"];
+        NSArray *sModelArr = [StatusModel mj_objectArrayWithKeyValuesArray:statusArr];
         
-        NSArray *arr = [StatusModel mj_objectArrayWithKeyValuesArray:statusArr];
-       
+        // 循环数据modle数组，每次循环创建一个FrameModel,将数据model传给FrameModel，让FrameModel计算出自己的每个属性
+        for (StatusModel *sModel in sModelArr) {
+            WBFrameModel *fModle = [[WBFrameModel alloc] init];
+            fModle.statusModel = sModel;
+            
+            // 将计算完成的fModel都添加在数据源数组中
+            [self.dataArray addObject:fModle];
+            
+        }
         
         
+        // 刷新界面
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+ 
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        [KVNProgress showErrorWithStatus:[error localizedDescription]];
+        [SVProgressHUD showErrorWithStatus:@"错误"];
         NSLog(@"error = %@",[error localizedDescription]);
     }];
 }
+
+#pragma mark - UITableVeiwdelegate / DataSource
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataArray.count;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 取出frameModle
+    WBFrameModel *fModel = self.dataArray[indexPath.row];
+    
+    return fModel.cellHeight;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellID = @"WBCellID";
+
+    WBCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    
+    if (cell == nil) {
+        cell =[[WBCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    
+    WBFrameModel *model = self.dataArray[indexPath.row];
+    
+    cell.frameModel = model;
+
+    return cell;
+}
+
+
 
 @end
